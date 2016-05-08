@@ -10,6 +10,6 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     chmod +x /opt/baasbox/start
 EXPOSE 80 
 VOLUME /var/data/baasbox
-RUN echo "java %* -cp "./lib/*;" -Dhttps.port=80 -Dhttp.port=80 play.core.server.NettyServer . " > /opt/baasbox/start
+RUN echo "java %* -cp "./lib/*; -Dhttps.port=80 -Dhttp.port=80 play.core.server.NettyServer . " > /opt/baasbox/start
 ENTRYPOINT /opt/baasbox/start
 
