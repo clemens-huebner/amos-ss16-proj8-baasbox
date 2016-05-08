@@ -7,7 +7,7 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     unzip -o baasbox-stable.zip && \
     mv baasbox*/ /opt/baasbox && \
     mkdir -p /var/data/baasbox && \ 
-    cchmod +x /opt/baasbox/start
+    chmod +x /opt/baasbox/start
 EXPOSE 80 
 VOLUME /var/data/baasbox
 ENTRYPOINT /opt/baasbox/start
