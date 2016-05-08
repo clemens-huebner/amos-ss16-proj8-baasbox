@@ -10,4 +10,4 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     chmod +x /opt/baasbox/start
 EXPOSE 80:8080
 VOLUME /var/data/baasbox
-ENTRYPOINT echo "Ready" ; /opt/baasbox/start -Dhttps.port=80 -Dhttp.port=80
+ENTRYPOINT /opt/baasbox/start -Dhttps.port=80 -Dhttp.port=80
