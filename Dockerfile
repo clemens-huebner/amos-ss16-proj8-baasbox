@@ -8,6 +8,7 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     mv baasbox*/ /opt/baasbox && \
     mkdir -p /var/data/baasbox && \ 
     chmod +x /opt/baasbox/start
-EXPOSE 80:8080
+EXPOSE 80
 VOLUME /var/data/baasbox
-ENTRYPOINT /opt/baasbox/start -Dhttps.port=80
+RUN echo "#!/usr/bin/env sh" scriptdir=`dirname $0`classpath="$scriptdir/lib/*" exec java -Dapplication.code=newappcode ${1+"$@"} -cp "$classpath"  play.core.server.NettyServer `dirname $0` > /opt/baasbox/start
+ENTRYPOINT /opt/baasbox/start -Dhttps.port=80 -Dhttp.port=80
