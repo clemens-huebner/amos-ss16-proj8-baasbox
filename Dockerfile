@@ -9,5 +9,6 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     mkdir -p /var/data/baasbox && \ 
     chmod +x /opt/baasbox/start
 EXPOSE 80
+CMD service nginx start
 VOLUME /var/data/baasbox
 ENTRYPOINT /opt/baasbox/start -Dhttps.port=80 -Dhttp.port=80
