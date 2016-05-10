@@ -10,4 +10,5 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     chmod +x /opt/baasbox/start
 EXPOSE 80:80
 VOLUME /var/data/baasbox
-ENTRYPOINT /opt/baasbox/start  -Dhttp.port=80
+RUN echo $CONTEXT_PATH
+ENTRYPOINT /opt/baasbox/start -Dhttps.port=80 -Dhttp.address=osr-amos.cs.fau.de/ss16/proj8-test
