@@ -8,6 +8,6 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     mv baasbox*/ /opt/baasbox && \
     mkdir -p /var/data/baasbox && \ 
     chmod +x /opt/baasbox/start
-EXPOSE 80
+EXPOSE 80:80
 VOLUME /var/data/baasbox
-ENTRYPOINT baasbox/start -Dhttp.port=80
+ENTRYPOINT baasbox/start -Dhttp.port=80 -Dhttp.adress=osr-amos.cs.fau.de/ss16/proj8-test
