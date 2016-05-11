@@ -16,4 +16,4 @@ RUN mkdir /opt/baasbox/conf && \
     echo application.context : "/ss16/proj8-conf" >> /opt/baasbox/conf/application.conf  && \ 
     echo } >> /opt/baasbox/conf/application.conf  && \ 
     cat /opt/baasbox/conf/application.conf
-ENTRYPOINT baasbox/start -Dhttp.port=80 -Dhttp.adress=osr-amos.cs.fau.de/ss16/proj8-test
+ENTRYPOINT /opt/baasbox/start -Dhttp.port=80 -Dhttp.adress=osr-amos.cs.fau.de/ss16/proj8-test
