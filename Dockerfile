@@ -1,12 +1,14 @@
-FROM dockerfile/java:oracle-java8
-MAINTAINER Cesare Rocchi <c.rocchi@baasbox.com>
-WORKDIR /baasbox
-
-RUN wget --content-disposition http://www.baasbox.com/download/baasbox-stable.zip
-RUN unzip baasbox*.zip
-RUN rm baasbox*.zip
-RUN mv baasbox-*/ baasbox/
-RUN chmod +x baasbox/start
-RUN --bind all
+FROM appertise/oracle-jdk8
+ENV DEBIAN_FRONTEND noninteractive 
+RUN apt-get update && \
+    apt-get install -y software-properties-common wget unzip && \
+    apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
+    unzip -o baasbox-stable.zip && \
+    mv baasbox*/ /opt/baasbox && \
+    mkdir -p /var/data/baasbox && \ 
+    chmod +x /opt/baasbox/start
 EXPOSE 80
+VOLUME /var/data/baasbox
+RUN --bind all
 ENTRYPOINT baasbox/start -Dhttp.port=80
