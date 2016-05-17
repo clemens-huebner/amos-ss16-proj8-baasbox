@@ -8,7 +8,6 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     mv baasbox*/ /opt/baasbox && \
     mkdir -p /var/data/baasbox && \ 
     chmod +x /opt/baasbox/start
-CMD service nginx start
-EXPOSE 80:9000
+EXPOSE 9000
 VOLUME /var/data/baasbox
 ENTRYPOINT /opt/baasbox/start  -Dhttp.adress=osr-amos.cs.fau.de/ss16/proj8-test
