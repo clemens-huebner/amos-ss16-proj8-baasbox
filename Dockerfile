@@ -10,4 +10,4 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     chmod +x /opt/baasbox/start
 EXPOSE 9000
 VOLUME /var/data/baasbox
-ENTRYPOINT /opt/baasbox/start -Dhttp.port=9000   -Dorient.baasbox.path="./Persistent"
+ENTRYPOINT /opt/baasbox/start -Dhttp.port=80   -Dorient.baasbox.path="./Persistent"
