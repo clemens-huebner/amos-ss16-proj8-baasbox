@@ -10,4 +10,4 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     chmod +x /opt/baasbox/start
 EXPOSE 9000
 VOLUME /var/data/baasbox
-ENTRYPOINT /opt/baasbox/start -Dhttp.port=80  -Dhttp.adress=osr-amos.cs.fau.de/ss16/proj8-test
+ENTRYPOINT /opt/baasbox/start -Dhttp.port=30485  -Dhttp.adress=osr-amos.cs.fau.de/ss16/proj8-test -Dorient.baasbox.path="/Persistent"
