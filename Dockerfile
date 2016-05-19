@@ -8,6 +8,6 @@ RUN wget http://www.baasbox.com/download/baasbox-stable.zip && \
     mv baasbox*/ /opt/baasbox && \
     mkdir -p /var/data/baasbox && \ 
     chmod +x /opt/baasbox/start
-EXPOSE 9000 80
+EXPOSE 9000
 VOLUME /var/data/baasbox
 ENTRYPOINT /opt/baasbox/start -Dhttp.port=9000   -Dorient.baasbox.path="/persistent"   
